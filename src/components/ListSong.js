@@ -1,13 +1,8 @@
-import React, {
-    useContext,
-    useState,
-    useEffect,
-} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Songs } from "../context";
 
 export default function ListSong() {
-    const { DataSongs, handleSetSong, song } =
-        useContext(Songs);
+    const { DataSongs, handleSetSong, song } = useContext(Songs);
     const [idSong, setIdSong] = useState(0);
 
     const handlePlaySong = (idSong) => {
@@ -24,18 +19,10 @@ export default function ListSong() {
             <table className="table-auto w-full">
                 <thead className="text-white h-12">
                     <tr className="sticky top-0 bg-slate-900 bg-opacity-60 ">
-                        <th className="w-[5%] text-center">
-                            No
-                        </th>
-                        <th className="text-left ml-2">
-                            Title
-                        </th>
-                        <th className="w-[10%] text-left">
-                            Author
-                        </th>
-                        <th className="w-[10%]">
-                            Download
-                        </th>
+                        <th className="w-[5%] text-center">No</th>
+                        <th className="text-left ml-2">Title</th>
+                        <th className="w-[10%] text-left">Author</th>
+                        <th className="w-[10%]">Download</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,21 +39,13 @@ export default function ListSong() {
                                 bg-opacity-80
                                 ${
                                     idSong === song.id &&
-                                    "text-sky-300 hover:text-sky-300"
+                                    "text-sky-400 hover:text-sky-400"
                                 }`}
-                            onClick={() =>
-                                handlePlaySong(song.id)
-                            }
+                            onClick={() => handlePlaySong(song.id)}
                         >
-                            <td className="text-center">
-                                {index + 1}
-                            </td>
-                            <td className="text-left ml-2">
-                                {song.name}
-                            </td>
-                            <td className="text-left">
-                                {song.author}
-                            </td>
+                            <td className="text-center">{index + 1}</td>
+                            <td className="text-left ml-2">{song.name}</td>
+                            <td className="text-left">{song.author}</td>
                             <td className="text-center">
                                 <a href={song.url}>
                                     <i className="fa fa-download"></i>
